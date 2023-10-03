@@ -1,7 +1,7 @@
 # o que o usuário vai ver
 from flask import render_template, request, redirect, url_for, flash
 from projeto import app, mongo
-from projeto.model import User
+from projeto.model import User, Nota
 
 @app.route('/')
 def index():
@@ -47,3 +47,26 @@ def cadastro():
             return redirect(url_for('login'))
         
     return render_template('cadastro.html')
+
+@app.route('/cadnotas', methods=['GET', 'POST'])
+def cadnotas():
+    if request.method == 'POST':
+        # Obtenha os dados do formulário de cadastro de notas de alunos
+        aluno_id = request.form['aluno_id']
+        nota_p1 = float(request.form['nota_p1'])
+        nota_p2 = float(request.form['nota_p2'])
+        quantidade_listas = int(request.form['quantidade_listas'])
+        # Certifique-se de associar a nota ao aluno que a está recebendo
+        # Substitua 'user_id' pelo ID do usuário autenticado
+        user_id = 'user_id'  # Substitua pelo ID do usuário autenticado
+        new_aluno_nota = Nota(user_id, aluno_id, nota_p1, nota_p2, quantidade_listas)
+        mongo.db.notas_alunos.insert_one(new_aluno_nota.__dict__)
+
+        flash('Nota do aluno cadastrada com sucesso!', 'success')
+
+    return render_template('cadastro_notas_alunos.html')
+
+@app.route('/home', methods=['GET'])
+def home():
+    notas = mongo.db.notas_alunos.find()
+    return render_template('home.html', notas=notas)

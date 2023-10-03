@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Notas de Alunos</title>
+</head>
+<body>
+    <h1>Cadastro de Notas de Alunos</h1>
+    <form method="POST" action="/cadastro_notas_alunos">
+        <label for="aluno_id">ID do Aluno:</label>
+        <input type="text" name="aluno_id" required><br>
+
+        <label for="nota_p1">Nota P1:</label>
+        <input type="number" name="nota_p1" required><br>
+        
+        <label for="nota_p2">Nota P2:</label>
+        <input type="number" name="nota_p2" required><br>
+
+        <label for="quantidade_listas">Quantidade de Listas:</label>
+        <input type="number" name="quantidade_listas" required><br>
+
+        <label for="nota_lista1">Nota L1:</label>
+        <input type="number" name="nota_lista1"><br>
+
+        <label for="nota_lista2">Nota L2:</label>
+        <input type="number" name="nota_lista2"><br>
+
+        <label for="nota_lista3">Nota L3:</label>
+        <input type="number" name="nota_lista3"><br>
+
+        <label for="nota_lista4">Nota L4:</label>
+        <input type="number" name="nota_lista4"><br>
+
+        <label for="nota_lista5">Nota L5:</label>
+        <input type="number" name="nota_lista5"><br>
+
+
+        <button type="submit">Cadastrar Nota</button>
+    </form>
+    <p>{{ get_flashed_messages() }}</p>
+    <button onclick="window.location.href='/home'">Voltar</button>
+</body>
+</html>
