@@ -1,9 +1,14 @@
 # o que o usuário vai ver
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, Flask
+from flask_pymongo import PyMongo
 import logging
-from app import app, mongo
+#from control import app, mongo
 from model import User, Nota
-from control import login_user
+from templates import *
+
+app = Flask(__name__)
+app.config['MONGO_URI'] = 'mongodb+srv://admin:adminadmin@cluster0.dkkdm28.mongodb.net/?retryWrites=true&w=majority'
+mongo = PyMongo(app)
 
 @app.route('/')
 def index():
@@ -16,9 +21,12 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-
+        
         # Verificando se o usuário existe e se a senha é correspondente
-        if login_user(username=username, password=password):
+        user = mongo.db.users.find_one({'username': username, 'password': password})
+        
+        # Login bem-sucedido
+        if user:
             return redirect(url_for('view_notes'))
         #Login falho
         else:
@@ -74,3 +82,6 @@ def home():
     app.logger.info('Solicitação recebida na rota /home')
     notas = mongo.db.notas_alunos.find()
     return render_template('home.html', notas=notas)
+
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -1,10 +1,10 @@
 # requests e rotas
-from flask import Flask, render_template, request, redirect, url_for, session
-from flask_pymongo import PyMongo
-from model import *
-from view import *
+from projeto.app import mongo  # Importe o objeto "mongo" para acessar o banco de dados
 
-app = Flask(__name__)
-app.config['MONGO_URI'] = 'mongodb+srv://admin:adminadmin@cluster0.dkkdm28.mongodb.net/?retryWrites=true&w=majority'
-mongo = PyMongo(app)
-
+def login_user(username, password):
+    # Lógica para verificar o login do usuário no banco de dados
+    user = mongo.db.users.find_one({'username': username, 'password': password})
+    if user:
+        return True
+    else:
+        return False
