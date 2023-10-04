@@ -1,0 +1,143 @@
+*   {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    box-sizing: border-box;
+  
+    /* Set font size for easy rem calculations
+     * default document font size = 16px, 1rem = 16px, 100% = 16px
+     * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+    */
+    
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem; /* 18px */
+    font-weight: 400;
+    line-height: 1.4;
+    color: whitesmoke;
+  }
+
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.297);
+    z-index: 10;
+    background-color: #f9f9f9;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+#nav-list { 
+    display: flex;
+    margin-right: 0.2rem;
+    list-style: none;
+    font-family:'Times New Roman', Times, serif;
+}
+
+#nav-list > a {
+    padding: 0.2rem 0.3rem 0.2rem 0.3rem;
+    font-size: 0.7rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#nav-list > a:hover {
+    background-color: #333333;
+    color:#ffffff;
+}
+
+section[id='mainpage'] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 100;
+    height: 100vh;
+    background-color: #3de5dd;
+    background-image: linear-gradient(0deg, #3de5dd, #31c5bd);
+}
+
+section[id='mainpage'] > h1, #input_field {
+    text-align: center;
+    display: block;
+}
+
+section[id='mainpage'] > #input_field > label {
+    font-size: 1rem;
+    color: rgb(12, 12, 12);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(0, 0, 0);
+}
+
+button {
+    padding: 0.2rem;
+    font-size: 0.5rem;
+    color: rgb(12, 12, 12);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    transition: transform 0.3s ease-out;
+    text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.122);
+    display: inline-block;
+    border-radius: 2px;
+    max-width: fit-content;
+}
+
+button:hover {
+    transform: translateY(-5px);
+}
+
+form > input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+form > input:focus {
+    border-color: #436c97;
+}
+
+/* Estilo para a tabela */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilo para as células do cabeçalho da tabela */
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Estilo para as células de dados da tabela */
+td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Estilo para as linhas alternadas da tabela */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para destacar uma linha quando o mouse passa sobre ela */
+tr:hover {
+    background-color: #ddd;
+}

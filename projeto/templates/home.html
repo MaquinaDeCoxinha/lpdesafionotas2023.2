@@ -1,9 +1,30 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
     <title>Notas de Alunos</title>
 </head>
+<nav id='nav-bar'> 
+    <ul id="nav-list">
+        <a href="/cadnotas">
+        <li>
+            Insira notas
+        </li>
+        </a>
+        <a href="/home">
+        <li>
+            Visualize notas
+        </li>
+        </a>
+        <a href="/login">
+            <li>
+                Login
+            </li>
+        </a>
+    </ul>
+</nav>
 <body>
+    <section id="mainpage">
     <h1>Notas de Alunos</h1>
     <table>
         <thead>
@@ -30,5 +51,6 @@
         </tbody>
     </table>
     <button onclick="window.location.href='/cadnotas'">Cadastrar Nota</button>
+</section>
 </body>
 </html>

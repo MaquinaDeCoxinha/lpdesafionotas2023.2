@@ -18,10 +18,10 @@ class Nota:
         self.definir_media_parcial()
 
     def definir_media_listas(self):
-        partes = re.split(r'\s*\+\s*', self.listas_raw)
+        partes = re.split(r'\s*\+\s*', self.listas_raw)     # Recebe as notas em string, e transforma em uma lista tirando os + e espaços
 
-        numbers = [float(parte) for parte in partes if parte.isdigit()]
-        self.media_listas = sum(numbers)/len(numbers)
+        numbers = [float(parte) for parte in partes if parte.isdigit()]     # Transforma os elementos da lista em números
+        self.media_listas = sum(numbers)/len(numbers)   # Calcula a média das listas
 
     def definir_media_parcial(self):
         self.media_parcial = ((self.nota_p1 + self.nota_p2)/2)*0.8 + (self.media_listas)*0.2
