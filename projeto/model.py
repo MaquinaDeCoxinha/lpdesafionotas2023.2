@@ -24,7 +24,7 @@ class Nota:
         self.media_listas = sum(numbers)/len(numbers)
 
     def definir_media_parcial(self):
-        self.media_parcial = (self.nota_p1 + self.nota_p2)*0.8 + (self.media_listas)*0.2
+        self.media_parcial = ((self.nota_p1 + self.nota_p2)/2)*0.8 + (self.media_listas)*0.2
         if self.media_parcial >= 7:
             self.situaco = 'Aprovado'
         elif self.media_parcial < 7 and self.media_parcial >= 3:

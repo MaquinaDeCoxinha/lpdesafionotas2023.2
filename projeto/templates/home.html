@@ -12,17 +12,19 @@
                 <th>Nota P1</th>
                 <th>Nota P2</th>
                 <th>Media das Listas</th>
-                <th>Media Final</th>
+                <th>Media Parcial</th>
+                <th>Situacao</th>
             </tr>
         </thead>
         <tbody>
             {% for nota in notas %}
             <tr>
                 <td>{{ nota.aluno_id }}</td>
-                <td>{{ nota.notap1 }}</td>
-                <td>{{ nota.notap2 }}</td>
-                <td>{{ nota.medialistas }}</td>
-                <td>{{ nota.mediafinal }}</td>
+                <td>{{ nota.nota_p1 }}</td>
+                <td>{{ nota.nota_p2 }}</td>
+                <td>{{ nota.media_listas }}</td>
+                <td>{{ nota.media_parcial }}</td>
+                <td>{{ nota.situacao }}</td>
             </tr>
             {% endfor %}
         </tbody>
