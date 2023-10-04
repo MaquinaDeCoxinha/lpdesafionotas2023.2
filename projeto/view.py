@@ -19,7 +19,7 @@ def login():
 
         # Verificando se o usuário existe e se a senha é correspondente
         if login_user(username=username, password=password):
-            return redirect(url_for('view_notes'))
+            return redirect(url_for('home'))
         #Login falho
         else:
             flash('Login inválido. Tente novamente por favor.')
@@ -67,7 +67,7 @@ def cadnotas():
 
         flash('Nota do aluno cadastrada com sucesso!', 'success')
 
-    return render_template('cadastro_notas_alunos.html')
+    return render_template('cadnotas.html')
 
 @app.route('/home', methods=['GET'])
 def home():
