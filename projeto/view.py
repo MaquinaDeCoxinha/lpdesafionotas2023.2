@@ -58,12 +58,10 @@ def cadnotas():
         aluno_id = request.form['aluno_id']
         nota_p1 = float(request.form['nota_p1'])
         nota_p2 = float(request.form['nota_p2'])
-        quantidade_listas = int(request.form['quantidade_listas'])
-        # Certifique-se de associar a nota ao aluno que a está recebendo
-        # Substitua 'user_id' pelo ID do usuário autenticado
-        user_id = 'user_id'  # Substitua pelo ID do usuário autenticado
-        new_aluno_nota = Nota(user_id, aluno_id, nota_p1, nota_p2, quantidade_listas)
-        mongo.db.notas_alunos.insert_one(new_aluno_nota.__dict__)
+        listas_raw = request.form['listas_raw']
+
+        novo_aluno_nota = Nota(aluno_id=aluno_id, nota_p1=nota_p1, nota_p2=nota_p2, listas_string=listas_raw)
+        mongo.db.notas_alunos.insert_one(novo_aluno_nota.__dict__)
 
         flash('Nota do aluno cadastrada com sucesso!', 'success')
 
