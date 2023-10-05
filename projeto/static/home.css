@@ -97,47 +97,65 @@ button:hover {
     transform: translateY(-5px);
 }
 
-form > input {
-    padding: 10px;
+input {
+    padding: 4px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
     font-size: 16px;
     outline: none;
     transition: border-color 0.3s;
 }
 
-form > input:focus {
+input:focus {
     border-color: #436c97;
 }
 
-/* Estilo para a tabela */
 table {
+    margin-left: auto;
+    margin-right: auto;
     border-collapse: collapse;
-    width: 100%;
+    width: 95%;
     margin-bottom: 20px;
 }
 
-/* Estilo para as células do cabeçalho da tabela */
 th {
     background-color: #f2f2f2;
     text-align: left;
     padding: 10px;
     border: 1px solid #ddd;
+    font-size: 0.8rem;
+    text-align: center;
 }
 
-/* Estilo para as células de dados da tabela */
 td {
     text-align: left;
     padding: 10px;
     border: 1px solid #ddd;
+    font-size: 0.7rem;
 }
 
-/* Estilo para as linhas alternadas da tabela */
 tr:nth-child(even) {
     background-color: #f2f2f2;
+    color: #31c5bd;
 }
 
-/* Estilo para destacar uma linha quando o mouse passa sobre ela */
+.cabecalho_tabela {
+    color: #31c5bd;
+}
+
 tr:hover {
     background-color: #ddd;
+}
+
+button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label {
+    font-size: 0.8rem;
+}
+
+form, table {
+    margin-top: 0.5rem;
 }

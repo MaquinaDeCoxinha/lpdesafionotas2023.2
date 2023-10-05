@@ -54,12 +54,25 @@ def cadastro():
 def cadnotas():
     app.logger.info('Solicitação recebida na rota /cadnotas')
     if request.method == 'POST':
-        # Obtenha os dados do formulário de cadastro de notas de alunos
         aluno_id = request.form['aluno_id']
-        nota_p1 = float(request.form['nota_p1'])
-        nota_p2 = float(request.form['nota_p2'])
-        listas_raw = request.form['listas_raw']
+        nota_p1 = request.form['nota_p1']
+        nota_p2 = request.form['nota_p2']
 
+        # Validar e converter nota_p1 para float
+        try:
+            nota_p1 = float(nota_p1)
+        except ValueError:
+            flash('Nota P1 deve ser um número válido', 'error')
+            return render_template('cadnotas.html')
+
+        # Validar e converter nota_p2 para float
+        try:
+            nota_p2 = float(nota_p2)
+        except ValueError:
+            flash('Nota P2 deve ser um número válido', 'error')
+            return render_template('cadnotas.html')
+
+        listas_raw = request.form['listas_raw']
         novo_aluno_nota = Nota(aluno_id=aluno_id, nota_p1=nota_p1, nota_p2=nota_p2, listas_string=listas_raw)
         mongo.db.notas_alunos.insert_one(novo_aluno_nota.__dict__)
 

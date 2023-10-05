@@ -30,23 +30,23 @@
     <table>
         <thead>
             <tr>
-                <th>ID do Aluno</th>
-                <th>Nota P1</th>
-                <th>Nota P2</th>
-                <th>Media das Listas</th>
-                <th>Media Parcial</th>
-                <th>Situacao</th>
+                <th class="cabecalho_tabela">ID do Aluno</th>
+                <th class="cabecalho_tabela">Nota P1</th>
+                <th class="cabecalho_tabela">Nota P2</th>
+                <th class="cabecalho_tabela">Media das Listas</th>
+                <th class="cabecalho_tabela">Media Parcial</th>
+                <th class="cabecalho_tabela">Situacao</th>
             </tr>
         </thead>
         <tbody>
             {% for nota in notas %}
             <tr>
-                <td>{{ nota.aluno_id }}</td>
-                <td>{{ nota.nota_p1 }}</td>
-                <td>{{ nota.nota_p2 }}</td>
-                <td>{{ nota.media_listas }}</td>
-                <td>{{ nota.media_parcial }}</td>
-                <td>{{ nota.situacao }}</td>
+                <td class="texto_cell">{{ nota.aluno_id }}</td>
+                <td class="texto_cell">{{ nota.nota_p1 }}</td>
+                <td class="texto_cell">{{ nota.nota_p2 }}</td>
+                <td class="texto_cell">{{ nota.media_listas }}</td>
+                <td class="texto_cell">{{ nota.media_parcial }}</td>
+                <td class="texto_cell">{{ nota.situacao }}</td>
             </tr>
             {% endfor %}
         </tbody>

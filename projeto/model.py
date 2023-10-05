@@ -10,8 +10,8 @@ class User:
 class Nota:
     def __init__(self, aluno_id, nota_p1, nota_p2, listas_string):
         self.aluno_id = aluno_id
-        self.nota_p1 = nota_p1
-        self.nota_p2 = nota_p2
+        self.nota_p1 = int(nota_p1)
+        self.nota_p2 = int(nota_p2)
         self.listas_raw = listas_string     #Foi definido que receberíamos as listas como notas sucessivas separadas por '+'
         self.listas = []
         self.definir_media_listas()
@@ -20,13 +20,19 @@ class Nota:
     def definir_media_listas(self):
         partes = re.split(r'\s*\+\s*', self.listas_raw)     # Recebe as notas em string, e transforma em uma lista tirando os + e espaços
 
-        numbers = [float(parte) for parte in partes if parte.isdigit()]     # Transforma os elementos da lista em números
-        self.media_listas = sum(numbers)/len(numbers)   # Calcula a média das listas
+        try:
+            numbers = [float(parte) for parte in partes if parte.isdigit()]     # Transforma os elementos da lista em números
+            self.media_listas = sum(numbers)/len(numbers)   # Calcula a média das listas
+        except:
+            self.isEmpty = True
 
     def definir_media_parcial(self):
-        self.media_parcial = ((self.nota_p1 + self.nota_p2)/2)*0.8 + (self.media_listas)*0.2
+        if self.isEmpty:
+            self.media_parcial = ((self.nota_p1 + self.nota_p2)/2)
+        else:
+            self.media_parcial = ((self.nota_p1 + self.nota_p2)/2)*0.8 + (self.media_listas)*0.2
         if self.media_parcial >= 7:
-            self.situaco = 'Aprovado'
+            self.situacao = 'Aprovado'
         elif self.media_parcial < 7 and self.media_parcial >= 3:
             self.situacao = 'Prova Final'
         else:
